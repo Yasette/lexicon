@@ -9,6 +9,9 @@
 <meta name="theme-color" content="#F5EEDC">
 <link rel="apple-touch-icon" href="icon-180.png">
 <link rel="icon" href="icon-180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="icon-512.png">
+<link rel="manifest" href="manifest.json">
 <title>Lexicon — SAT Reading &amp; Writing</title>
 <style>html,body{margin:0;padding:0;background:#F5EEDC}</style>
 </head>
@@ -459,6 +462,15 @@ lucide-react/dist/esm/lucide-react.js:
    * See the LICENSE file in the root directory of this source tree.
    *)
 */
+</script>
+<script>
+// Offline support. Registration is best-effort: if it fails the app still
+// works exactly as before, straight from the network.
+if ('serviceWorker' in navigator && location.protocol !== 'file:') {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('sw.js', { scope: './' }).catch(function () {});
+  });
+}
 </script>
 </body>
 </html>
